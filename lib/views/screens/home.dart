@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.title});
@@ -66,6 +67,7 @@ class NoteFeedList extends StatelessWidget {
         return NoteFeedListItem(
           key: ValueKey(note.id),
           note: note,
+          onTap: () => context.push('/note'),
         );
       },
     );
@@ -74,10 +76,12 @@ class NoteFeedList extends StatelessWidget {
 
 class NoteFeedListItem extends StatelessWidget {
   final Note note;
+  final VoidCallback? onTap;
 
   const NoteFeedListItem({
     super.key,
     required this.note,
+    this.onTap,
   });
 
   @override
@@ -86,6 +90,7 @@ class NoteFeedListItem extends StatelessWidget {
       child: ListTile(
         title: Text(note.title),
         subtitle: Text(note.subtitle),
+        onTap: onTap,
       ),
     );
   }

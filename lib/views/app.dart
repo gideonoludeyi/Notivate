@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'screens/home.dart';
+import 'screens/note.dart';
 
 final GoRouter _router = GoRouter(
   initialLocation: '/',
@@ -10,6 +11,12 @@ final GoRouter _router = GoRouter(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
         return const HomeScreen(title: "Feed");
+      },
+    ),
+    GoRoute(
+      path: '/note',
+      builder: (BuildContext context, GoRouterState state) {
+        return const NoteScreen();
       },
     ),
   ],
