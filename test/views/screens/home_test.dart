@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:notivate/services/note_service.dart' show Note;
 import 'package:notivate/views/screens/home.dart'
-    show Note, NoteFeedList, NoteFeedListItem;
+    show NoteFeedList, NoteFeedListItem;
 
 void main() {
   testWidgets('NoteFeedListItem should display title and subtitle',
