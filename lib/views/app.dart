@@ -20,32 +20,36 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      routerConfig: GoRouter(
-        initialLocation: '/',
-        routes: <RouteBase>[
-          GoRoute(
-            path: '/',
-            builder: (BuildContext context, GoRouterState state) {
-              return HomeScreen(
-                title: "Feed",
-                noteService: noteService,
-              );
-            },
-          ),
-          GoRoute(
-            path: '/note/:id',
-            builder: (BuildContext context, GoRouterState state) {
-              String? noteId = state.params['id'];
-
-              return NoteScreen(
-                noteId: noteId!,
-                noteService: noteService,
-              );
-            },
-          ),
-        ],
-      ),
+      routerConfig: _routerConfig(),
       debugShowCheckedModeBanner: true,
+    );
+  }
+
+  GoRouter _routerConfig() {
+    return GoRouter(
+      initialLocation: '/',
+      routes: <RouteBase>[
+        GoRoute(
+          path: '/',
+          builder: (BuildContext context, GoRouterState state) {
+            return HomeScreen(
+              title: "Feed",
+              noteService: noteService,
+            );
+          },
+        ),
+        GoRoute(
+          path: '/note/:id',
+          builder: (BuildContext context, GoRouterState state) {
+            String? noteId = state.params['id'];
+
+            return NoteScreen(
+              noteId: noteId!,
+              noteService: noteService,
+            );
+          },
+        ),
+      ],
     );
   }
 }
