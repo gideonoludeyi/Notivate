@@ -5,34 +5,65 @@ import 'package:notivate/views/screens/home.dart'
     show NoteFeedList, NoteFeedListItem;
 
 void main() {
-  testWidgets('NoteFeedListItem should display title and subtitle',
-      (WidgetTester tester) async {
-    // Arrange
-    const note = Note(
-      id: "1",
-      title: "Note #1 Title",
-      subtitle: "note #1 subtitle",
-    );
+  group("NoteFeedListItem", () {
+    testWidgets('should display title and subtitle',
+        (WidgetTester tester) async {
+      // Arrange
+      const note = Note(
+        id: "1",
+        title: "Note #1 Title",
+        subtitle: "note #1 subtitle",
+      );
 
-    const widget = NoteFeedListItem(note: note);
+      const widget = NoteFeedListItem(note: note);
 
-    // Act: Build NoteFeedListItem widget and trigger a frame.
-    await tester.pumpWidget(const MaterialApp(
-      home: widget,
-    ));
+      // Act: Build NoteFeedListItem widget and trigger a frame.
+      await tester.pumpWidget(const MaterialApp(
+        home: widget,
+      ));
 
-    // Assert: NoteFeedListItem should display the appropriate title
-    expect(
-      find.text(note.title),
-      findsOneWidget,
-      reason: "NoteFeedListItem should display the appropriate title",
-    );
-    // Assert: NoteFeedListItem should display the appropriate subtitle
-    expect(
-      find.text(note.subtitle),
-      findsOneWidget,
-      reason: "NoteFeedListItem should display the appropriate subtitle",
-    );
+      // Assert: NoteFeedListItem should display the appropriate title
+      expect(
+        find.text(note.title),
+        findsOneWidget,
+        reason: "NoteFeedListItem should display the appropriate title",
+      );
+      // Assert: NoteFeedListItem should display the appropriate subtitle
+      expect(
+        find.text(note.subtitle),
+        findsOneWidget,
+        reason: "NoteFeedListItem should display the appropriate subtitle",
+      );
+    });
+
+    testWidgets('should execute callback on tap', (WidgetTester tester) async {
+      // Arrange
+      bool called = false;
+      onTap() {
+        called = true;
+      }
+
+      final widget = NoteFeedListItem(
+        note: const Note(
+          id: "1",
+          title: "Note #1 Title",
+          subtitle: "note #1 subtitle",
+        ),
+        onTap: onTap,
+      );
+
+      // Act: Build NoteFeedListItem widget and tap on the widget.
+      await tester.pumpWidget(MaterialApp(home: widget));
+
+      await tester.tap(find.byType(NoteFeedListItem));
+
+      // Assert: NoteFeedListItem should executed callback on tap
+      expect(
+        called,
+        true,
+        reason: "NoteFeedListItem should executed callback on tap",
+      );
+    });
   });
 
   testWidgets('NoteFeedList should display notes', (WidgetTester tester) async {
