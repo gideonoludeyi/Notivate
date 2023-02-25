@@ -20,6 +20,15 @@ class NoteService {
   List<Note> findAllNotes() {
     return _notes;
   }
+
+  Note? findNoteById(String id) {
+    for (final note in _notes) {
+      if (note.id == id) {
+        return note;
+      }
+    }
+    return null;
+  }
 }
 
 class Note {

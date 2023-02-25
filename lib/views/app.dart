@@ -33,9 +33,14 @@ class App extends StatelessWidget {
             },
           ),
           GoRoute(
-            path: '/note',
+            path: '/note/:id',
             builder: (BuildContext context, GoRouterState state) {
-              return const NoteScreen();
+              String? noteId = state.params['id'];
+
+              return NoteScreen(
+                noteId: noteId!,
+                noteService: noteService,
+              );
             },
           ),
         ],

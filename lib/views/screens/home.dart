@@ -55,7 +55,7 @@ class NoteFeedList extends StatelessWidget {
         return NoteFeedListItem(
           key: ValueKey(note.id),
           note: note,
-          onTap: () => context.push('/note'),
+          onTap: () => context.push('/note/${note.id}'),
         );
       },
     );
