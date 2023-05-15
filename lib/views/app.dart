@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:notivate/views/screens/home.dart';
+import 'package:notivate/views/screens/feed.dart';
 import 'package:notivate/views/screens/login.dart';
 import 'package:notivate/views/screens/signup.dart';
 
@@ -28,7 +28,7 @@ class App extends StatelessWidget {
       ),
       GoRoute(
         path: "/feed",
-        builder: (context, state) => const HomeScreen(title: "Feed"),
+        builder: (context, state) => const FeedScreen(title: "Feed"),
       ),
       GoRoute(
         path: "/auth/login",

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.title});
+class FeedScreen extends StatefulWidget {
+  const FeedScreen({super.key, required this.title});
 
   final String title;
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<FeedScreen> createState() => _FeedScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _FeedScreenState extends State<FeedScreen> {
   final List<Note> notes = List.of(const [
     Note(
       id: "1",

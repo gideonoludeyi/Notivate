@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:notivate/views/screens/home.dart'
+import 'package:notivate/views/screens/feed.dart'
     show Note, NoteFeedList, NoteFeedListItem;
 
 void main() {
