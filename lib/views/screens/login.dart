@@ -1,17 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:notivate/services/authentication_service.dart';
+import 'package:notivate/views/components/button.dart';
+import 'package:notivate/views/components/login_form.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({Key? key, required this.authService}) : super(key: key);
 
-  @override
-  State<LoginScreen> createState() => _LoginState();
-}
+  final AuthenticationService authService;
 
-class _LoginState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Text("LoginScreen (WIP)"),
+    return Scaffold(
+      body: Column(
+        children: [
+          LoginForm(onLogin: _handleOnLogin),
+          const SizedBox(height: 16),
+          Button(text: "Go to sign up", onTap: () => _navigateToSignUp(context))
+        ],
+      ),
     );
+  }
+
+  void _navigateToSignUp(BuildContext context) => context.go("/auth/signup");
+
+  void _handleOnLogin({required email, required password}) {
+    authService.loginWithEmailAndPassword(email, password);
   }
 }

@@ -19,21 +19,35 @@ samples, guidance on mobile development, and a full API reference.
 
 1. [Install](https://flutter.dev/docs/get-started/install) and setup Flutter
 
-2. Clone the repo
-
+2. [Install](https://firebase.google.com/docs/cli/#install-cli-windows) and setup Firebase CLI
 ```sh
-git clone https://github.com/BrockCSC/notivate.git notivate
-cd notivate
+$ # after install
+$ firebase login
 ```
 
-3. Install project dependencies
-
+3. Setup firebase emulator
 ```sh
-flutter pub get
+$ firebase emulators:start
 ```
 
-4. Start the app
+4. Start another terminal session
+
+5. Clone the repo
 
 ```sh
-flutter run
+$ git clone https://github.com/BrockCSC/notivate.git notivate
+$ cd notivate
 ```
+
+6. Install project dependencies
+
+```sh
+$ flutter pub get
+```
+
+7. Start the app
+
+```sh
+$ flutter run
+```
+

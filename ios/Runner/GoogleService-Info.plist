@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>738727811148-lh3nfdt0lnevvvg0ol6nissmtnljnkgr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.738727811148-lh3nfdt0lnevvvg0ol6nissmtnljnkgr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCDjYHtndAcLQiQdUUckyDP8L7pCm4y7co</string>
+	<key>GCM_SENDER_ID</key>
+	<string>738727811148</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.notivate</string>
+	<key>PROJECT_ID</key>
+	<string>openote-b6d31</string>
+	<key>STORAGE_BUCKET</key>
+	<string>openote-b6d31.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:738727811148:ios:26fdc18b8e84776bfcbce9</string>
+</dict>
+</plist>

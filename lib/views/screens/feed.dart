@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:notivate/models/note.dart';
+import 'package:notivate/services/authentication_service.dart';
 import 'package:notivate/views/components/note_feed_list.dart';
 
 class FeedScreen extends StatefulWidget {
-  const FeedScreen({super.key, required this.title});
+  const FeedScreen({super.key, required this.title, required this.authService});
 
   final String title;
+  final AuthenticationService authService;
 
   @override
   State<FeedScreen> createState() => _FeedScreenState();
@@ -17,6 +19,15 @@ class _FeedScreenState extends State<FeedScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: [
+          TextButton(
+            onPressed: widget.authService.logout,
+            child: const Text(
+              "Logout",
+              style: TextStyle(color: Colors.white),
+            ),
+          )
+        ],
       ),
       body: SafeArea(
         child: NoteFeedList(

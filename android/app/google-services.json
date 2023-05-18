@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "738727811148",
+    "project_id": "openote-b6d31",
+    "storage_bucket": "openote-b6d31.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738727811148:android:7be58b8d2a7327d7fcbce9",
+        "android_client_info": {
+          "package_name": "com.example.notivate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738727811148-vi9j91edk04no6dsfe82cjtoiqn2go1f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCZDQL2JIPUuiDWpy5KEPhw4-Php3Teqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738727811148-vi9j91edk04no6dsfe82cjtoiqn2go1f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "738727811148-lh3nfdt0lnevvvg0ol6nissmtnljnkgr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.notivate"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
