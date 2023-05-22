@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:notivate/models/note.dart';
 import 'package:notivate/services/authentication_service.dart';
+import 'package:notivate/services/note_service.dart';
 import 'package:notivate/views/components/note_feed_list.dart';
 
-class FeedScreen extends StatefulWidget {
-  const FeedScreen({super.key, required this.title, required this.authService});
+class FeedScreen extends StatelessWidget {
+  const FeedScreen({
+    super.key,
+    required this.authService,
+    required this.noteService,
+  });
 
-  final String title;
   final AuthenticationService authService;
+  final NoteService noteService;
 
-  @override
-  State<FeedScreen> createState() => _FeedScreenState();
-}
-
-class _FeedScreenState extends State<FeedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text("Feed"),
         actions: [
           TextButton(
-            onPressed: widget.authService.logout,
+            onPressed: authService.logout,
             child: const Text(
               "Logout",
               style: TextStyle(color: Colors.white),
@@ -30,8 +30,14 @@ class _FeedScreenState extends State<FeedScreen> {
         ],
       ),
       body: SafeArea(
-        child: NoteFeedList(
-          notes: notes,
+        child: StreamBuilder<List<Note>>(
+          initialData: const <Note>[],
+          stream: noteService.notes$,
+          builder: (context, snapshot) {
+            return NoteFeedList(
+              notes: snapshot.data ?? const [],
+            );
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -41,22 +47,4 @@ class _FeedScreenState extends State<FeedScreen> {
       ),
     );
   }
-
-  final List<Note> notes = List.of(const [
-    Note(
-      id: "1",
-      title: "Hello World",
-      subtitle: "lorem ipsum dolor sit amet",
-    ),
-    Note(
-      id: "2",
-      title: "Data Structures: LinkedList",
-      subtitle: "LinkedList is one of the more common data structures...",
-    ),
-    Note(
-      id: "3",
-      title: "Favor Composition over Inheritance",
-      subtitle: "OOP Design Principles - Part 007",
-    ),
-  ]);
 }

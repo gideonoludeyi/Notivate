@@ -4,8 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:notivate/services/authentication_service.dart';
 
 class FirebaseAuthenticationService implements AuthenticationService {
-  const FirebaseAuthenticationService({required FirebaseAuth firebaseAuth})
-      : _firebaseAuth = firebaseAuth;
+  const FirebaseAuthenticationService(this._firebaseAuth);
 
   final FirebaseAuth _firebaseAuth;
 
